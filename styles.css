@@ -1,0 +1,82 @@
+/* ---------- Global Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #1a1a2e;
+  min-height: 100vh;
+  position: relative; /* needed so the fixed lightbox stays in viewport context */
+}
+
+/* ---------- Gallery ---------- */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.gallery-item {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;            /* opens on top of current images */
+  top: 0;                     /* starts at top-left corner */
+  left: 0;                    /* starts at top-left corner */
+  width: 100%;                /* covers entire viewport width */
+  height: 100%;               /* covers entire viewport height */
+  background-color: rgba(0, 0, 0, 0.85); /* background color */
+  display: none;              /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Show lightbox when .show class is added via JS */
+.lightbox.show {
+  display: flex;
+}
+
+/* Full-size image */
+#lightbox-image {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 8px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Close button */
+#close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+#close-btn:hover {
+  color: #ff4d4d;
+}
